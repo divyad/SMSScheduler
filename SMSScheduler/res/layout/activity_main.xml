@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/rounded_edittext"
+    android:orientation="vertical" >>
+
+    <EditText
+        android:id="@+id/toRecipient"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:padding="5dip"
+        android:background="@drawable/myshape_edittext"
+        android:hint="@string/to" />
+    
+    <EditText
+        android:id="@+id/ccRecipient"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:padding="5dip"
+        android:background="@drawable/myshape_edittext"
+        android:hint="@string/cc" />
+    
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:padding="5dip"
+        android:background="@drawable/myshape_edittext"
+        android:hint="@string/subject" />
+    
+    <EditText
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:padding="25dip"
+        android:background="@drawable/myshape_edittext"
+        android:hint="@string/message"
+        android:inputType="textMultiLine" />
+    
+     <Button
+        android:id="@+id/send"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="addExpense"
+        android:background="@color/notepad_lines"
+        android:text="@string/send" />
+
+</LinearLayout>
