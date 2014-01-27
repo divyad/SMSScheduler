@@ -3,8 +3,10 @@ package com.message.smsscheduler;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -25,10 +27,7 @@ public class MainActivity extends Activity {
 		subject = (EditText) findViewById(R.id.subject);
 		message = (EditText) findViewById(R.id.body);
 		
-		System.out.println("toRecipient:-"+toRecipient);
-		System.out.println("ccRecipient:-"+ccRecipient);
-		System.out.println("subject:-"+subject);
-		System.out.println("message:-"+message);
+		
 	}
 
 	@Override
@@ -38,4 +37,32 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	
+	public void sendMsg(View view)
+	{
+		System.out.println("toRecipient:-"+toRecipient.getText().toString());
+		System.out.println("ccRecipient:-"+ccRecipient.getText().toString());
+		System.out.println("subject:-"+subject.getText().toString());
+		System.out.println("message:-"+message.getText().toString());
+		
+		if (toRecipient.getText().toString() == null || "".equals(toRecipient.getText().toString().trim())) {
+			Toast.makeText(this, "Please select recipients", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		else if (subject.getText().toString() == null || "".equals(subject.getText().toString().trim())) {
+			Toast.makeText(this, "Please enter a valid subject", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
+		Toast.makeText(this, "Message Sent!", Toast.LENGTH_SHORT).show();
+	
+		resetComposeMsgView();
+	}
+	
+	private void resetComposeMsgView() {
+		toRecipient.setText("");
+		ccRecipient.setText("");
+		subject.setText("");
+		message.setText("");
+	}
 }

@@ -9,5 +9,6 @@
     <string name="subject">subject</string>
     <string name="message">message</string>
     <string name="send">send</string>
+    <string name="clear">clear</string>
 
 </resources>

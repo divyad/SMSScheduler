@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="20dp"
     android:background="@drawable/rounded_edittext"
-    android:orientation="vertical" >>
+    android:orientation="vertical" >
 
     <EditText
         android:id="@+id/toRecipient"
@@ -41,19 +42,34 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:padding="25dip"
+        
         android:background="@drawable/myshape_edittext"
         android:hint="@string/message"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine" android:lines="6"/>
     
-     <Button
-        android:id="@+id/send"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="addExpense"
-        android:background="@color/notepad_lines"
-        android:text="@string/send" />
+     <LinearLayout
+         android:id="@+id/linearLayout1"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+
+         <Button
+             android:id="@+id/send"
+             android:layout_width="130dp"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:background="@color/notepad_lines"
+             android:onClick="sendMsg"
+             android:text="@string/send" />
+
+         <Button
+             android:id="@+id/clear"
+             android:layout_width="130dp"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:layout_marginLeft="10dp"
+             android:background="@color/notepad_lines"
+             android:onClick="resetComposeMsgView"
+             android:text="@string/clear" />
+     </LinearLayout>
 
 </LinearLayout>
