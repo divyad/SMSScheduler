@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -56,22 +57,21 @@ public class MainActivity extends Activity {
 			Toast.makeText(this, "Please enter a valid subject", Toast.LENGTH_SHORT).show();
 			return;
 		}
-		
-		if(!isValidEmail(toRecipient.getText().toString()))
+		else 
 		{
-			Toast.makeText(this, "Please enter a valid email id in To", Toast.LENGTH_SHORT).show();
-			toRecipient.setText("");
-			return;
-		}
-		else if(ccRecipient.getText().toString() != null  && !isValidEmail(ccRecipient.getText().toString()))
-		{
-			Toast.makeText(this, "Please enter a valid email id in Cc", Toast.LENGTH_SHORT).show();
-			ccRecipient.setText("");
-			return;
-		}
-		else {
-			Toast.makeText(this, "Message Sent!", Toast.LENGTH_SHORT).show();
-		}
+			try 
+			{
+				SmsManager smsManager = SmsManager.getDefault();
+				smsManager.sendTextMessage(toRecipient.getText().toString(), null, message.getText().toString(), null, null);
+				Toast.makeText(getApplicationContext(), "SMS Sent!",Toast.LENGTH_LONG).show();
+			} catch (Exception e) {
+				Toast.makeText(getApplicationContext(),
+						"SMS faild, please try again later!",
+						Toast.LENGTH_LONG).show();
+				e.printStackTrace();
+			}
+		}			
+
 		resetComposeMsgView(view);
 	}
 
