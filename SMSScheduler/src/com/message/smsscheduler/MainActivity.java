@@ -1,5 +1,8 @@
 package com.message.smsscheduler;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -54,15 +57,37 @@ public class MainActivity extends Activity {
 			return;
 		}
 		
-		Toast.makeText(this, "Message Sent!", Toast.LENGTH_SHORT).show();
-	
+		if(!isValidEmail(toRecipient.getText().toString()))
+		{
+			Toast.makeText(this, "Please enter a valid email id in To", Toast.LENGTH_SHORT).show();
+			toRecipient.setText("");
+			return;
+		}
+		else if(ccRecipient.getText().toString() != null  && !isValidEmail(ccRecipient.getText().toString()))
+		{
+			Toast.makeText(this, "Please enter a valid email id in Cc", Toast.LENGTH_SHORT).show();
+			ccRecipient.setText("");
+			return;
+		}
+		else {
+			Toast.makeText(this, "Message Sent!", Toast.LENGTH_SHORT).show();
+		}
 		resetComposeMsgView(view);
 	}
-	
+
 	public void resetComposeMsgView(View view) {
 		toRecipient.setText("");
 		ccRecipient.setText("");
 		subject.setText("");
 		message.setText("");
 	}
+	
+	public final static boolean isValidEmail(CharSequence target) {
+		Pattern pattern;
+    Matcher matcher;
+    final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    pattern = Pattern.compile(EMAIL_PATTERN);
+    matcher = pattern.matcher(target);
+    return matcher.matches();
+  }   
 }
