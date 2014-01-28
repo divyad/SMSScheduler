@@ -56,10 +56,10 @@ public class MainActivity extends Activity {
 		
 		Toast.makeText(this, "Message Sent!", Toast.LENGTH_SHORT).show();
 	
-		resetComposeMsgView();
+		resetComposeMsgView(view);
 	}
 	
-	private void resetComposeMsgView() {
+	public void resetComposeMsgView(View view) {
 		toRecipient.setText("");
 		ccRecipient.setText("");
 		subject.setText("");
