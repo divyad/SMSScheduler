@@ -5,8 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="to">Phone Number</string>
-    <string name="cc">Cc</string>
-    <string name="subject">subject</string>
     <string name="message">SMS message</string>
     <string name="send">send</string>
     <string name="clear">clear</string>
