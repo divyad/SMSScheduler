@@ -8,6 +8,10 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
 
+    <!-- permission required to use Alarm Manager -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    
+    <!-- permission required to Send SMS -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     
     <application
@@ -24,6 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Register the Alarm Receiver -->
+        <receiver android:name=".AlarmReciever"/> 
     </application>
 
 </manifest>
