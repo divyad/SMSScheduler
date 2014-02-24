@@ -2,4 +2,4 @@ SMSScheduler
 ============
 
 SMS Scheduler Android App
-(https://github.com/divyad/SMSScheduler/blob/master/SMSScheduler/SMSScheduler-screenshot.png)
+![SMS Scheduler Screenshot](https://github.com/divyad/SMSScheduler/blob/master/SMSScheduler/SMSScheduler-screenshot.png?raw=true)
